@@ -4,9 +4,13 @@ public class Filme {
     String nome;
     int anoLancamento;
     boolean incluidoPlano;
-    double somaAvaliacoes;
-    int totalAvaliacoes;
+    private double somaAvaliacoes;
+    private int totalAvaliacoes;
     int duracoesMinutos;
+
+    public int getTotalAvaliacoes() {
+        return totalAvaliacoes;
+    }
 
     void exibeFichaTecnica(){
         System.out.println(String.format(
