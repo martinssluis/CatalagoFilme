@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.entities.Filme;
+import com.example.entities.Serie;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,5 +16,12 @@ public class Main {
         meuFilme.avalia(10);
         System.out.println("Total de avaliações: " + meuFilme.getTotalAvaliacoes());
         System.out.println(meuFilme.pegaMedia());
+
+        Serie lost = new Serie();
+        lost.setNome("Lost");
+        lost.setAnoLancamento(2000);
+        lost.exibeFichaTecnica();
+        lost.setTemporadas(10);
+        lost.setEpisodiosPorTemporada(10);
     }
 }
