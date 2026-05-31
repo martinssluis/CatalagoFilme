@@ -2,6 +2,7 @@ package com.example;
 
 import com.example.entities.Filme;
 import com.example.entities.Serie;
+import com.example.services.CalculadoraDeTempo;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,6 +10,7 @@ public class Main {
         meuFilme.setNome("O Poderoso chefão");
         meuFilme.setAnoLancamento(1970);
         meuFilme.setDuracoesMinutos(180);
+        System.out.print("Duração do filme: " + meuFilme.getDuracoesMinutos());
 
         meuFilme.exibeFichaTecnica();
         meuFilme.avalia(8);
@@ -23,5 +25,19 @@ public class Main {
         lost.exibeFichaTecnica();
         lost.setTemporadas(10);
         lost.setEpisodiosPorTemporada(10);
+        lost.setMinutosPorEpisodio(50);
+        System.out.println("Duração para maratonar lost: " + lost.getDuracoesMinutos());
+
+        Filme outroFilme = new Filme();
+        outroFilme.setNome("Avatar");
+        outroFilme.setAnoLancamento(2023);
+        outroFilme.setDuracoesMinutos(200);
+
+
+        CalculadoraDeTempo calculadora = new CalculadoraDeTempo();
+        calculadora.inclui(meuFilme);
+        calculadora.inclui(outroFilme);
+        calculadora.inclui(lost);
+        System.out.println(calculadora.getTempoTotal());
     }
 }
