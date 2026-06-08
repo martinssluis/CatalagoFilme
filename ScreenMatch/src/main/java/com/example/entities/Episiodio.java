@@ -1,9 +1,13 @@
 package com.example.entities;
 
-public class Episiodio {
+import com.example.services.Classificavel;
+
+public class Episiodio implements Classificavel {
     private int numero;
     private String nome;
     private Serie serie;
+    private int totalVisualisacoes;
+
 
     public int getNumero() {
         return numero;
@@ -27,5 +31,22 @@ public class Episiodio {
 
     public void setSerie(Serie serie) {
         this.serie = serie;
+    }
+
+    public int getTotalVisualisacoes() {
+        return totalVisualisacoes;
+    }
+
+    public void setTotalVisualisacoes(int totalVisualisacoes) {
+        this.totalVisualisacoes = totalVisualisacoes;
+    }
+
+    @Override
+    public int getClassificacao() {
+        if(totalVisualisacoes > 100){
+            return 4;
+        } else{
+        return 2;
+        }
     }
 }
