@@ -1,8 +1,10 @@
 package com.example;
 
+import com.example.entities.Episiodio;
 import com.example.entities.Filme;
 import com.example.entities.Serie;
 import com.example.services.CalculadoraDeTempo;
+import com.example.services.FiltroRecomendacao;
 
 public class Main {
     public static void main(String[] args) {
@@ -39,5 +41,14 @@ public class Main {
         calculadora.inclui(outroFilme);
         calculadora.inclui(lost);
         System.out.println(calculadora.getTempoTotal());
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(meuFilme);
+
+        Episiodio episiodio = new Episiodio();
+        episiodio.setNumero(1);
+        episiodio.setSerie(lost);
+        episiodio.setTotalVisualisacoes(300);
+        filtro.filtra(episiodio);
     }
 }
