@@ -6,6 +6,8 @@ import com.example.entities.Serie;
 import com.example.services.CalculadoraDeTempo;
 import com.example.services.FiltroRecomendacao;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         Filme meuFilme = new Filme();
@@ -50,5 +52,18 @@ public class Main {
         episiodio.setSerie(lost);
         episiodio.setTotalVisualisacoes(300);
         filtro.filtra(episiodio);
+
+        var filmeDoPaulo = new Filme();
+        filmeDoPaulo.setDuracoesMinutos(200);
+        filmeDoPaulo.setNome("Dogville");
+        filmeDoPaulo.setAnoLancamento(2003);
+        filmeDoPaulo.avalia(10);
+
+        ArrayList<Filme> listaDeFilmes = new ArrayList<>();
+        listaDeFilmes.add(filmeDoPaulo);
+        listaDeFilmes.add(meuFilme);
+        listaDeFilmes.add(outroFilme);
+        System.out.println("Tamanho da lista: " + listaDeFilmes.size());
+        System.out.println("Primeiro filme: " + listaDeFilmes.get(0).getNome());
     }
 }
