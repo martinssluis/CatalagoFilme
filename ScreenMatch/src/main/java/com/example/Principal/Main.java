@@ -1,4 +1,4 @@
-package com.example;
+package com.example.Principal;
 
 import com.example.entities.Episiodio;
 import com.example.entities.Filme;
