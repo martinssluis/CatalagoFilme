@@ -22,6 +22,9 @@ public class PrincipalComListas {
         lista.add(outroFilme);
         lista.add(lost);
 
+//        lista.forEach(item-> System.out.println(item));
+//        lista.forEach(System.out::println);
+
         for (Titulo item: lista){
             System.out.println(item.getNome());
             Filme filme = (Filme) item;
