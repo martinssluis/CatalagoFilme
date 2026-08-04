@@ -5,6 +5,7 @@ import com.example.entities.Serie;
 import com.example.entities.Titulo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class PrincipalComListas {
     public static void main(String[] args) {
@@ -34,5 +35,16 @@ public class PrincipalComListas {
             }
 
         }
+
+        ArrayList<String> buscaPorArtista = new ArrayList<>();
+        buscaPorArtista.add("Adam Sandler");
+        buscaPorArtista.add("Paulo");
+        buscaPorArtista.add("Jaqueline");
+        System.out.println(buscaPorArtista);
+
+        Collections.sort(buscaPorArtista);
+        System.out.println("Depois da ordenação: "+ buscaPorArtista);
+        Collections.sort(lista);
+        System.out.println("Lista de Titulos ordenados: "+lista);
     }
 }
