@@ -1,5 +1,6 @@
 package com.example.entities;
 
+import com.example.dto.TituloOmdb;
 import com.google.gson.annotations.SerializedName;
 
 public class Titulo implements Comparable<Titulo>{
@@ -15,6 +16,12 @@ public class Titulo implements Comparable<Titulo>{
     public Titulo(String nome, int anoLancamento) {
         this.nome = nome;
         this.anoLancamento = anoLancamento;
+    }
+
+    public Titulo(TituloOmdb meuTituloOmdb) {
+        this.nome = meuTituloOmdb.title();
+        this.anoLancamento = Integer.valueOf(meuTituloOmdb.year());
+        this.duracoesMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,2));
     }
 
     public String getNome() {
@@ -91,6 +98,7 @@ public class Titulo implements Comparable<Titulo>{
     @Override
     public String toString() {
         return "nome='" + nome + '\'' +
-                ", anoLancamento=" + anoLancamento;
+                ", anoLancamento=" + anoLancamento + "," +
+                "duração=" + duracoesMinutos;
     }
 }
