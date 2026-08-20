@@ -7,6 +7,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
@@ -22,6 +23,10 @@ public class PrincipalComBusca {
         Scanner sc = new Scanner(System.in);
         String busca = "";
         List<Titulo> titulos = new ArrayList<>();
+        Gson gson = new GsonBuilder()
+                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+                        .setPrettyPrinting()
+                        .create();
 
         while(!busca.equalsIgnoreCase("sair")) {
             System.out.print("Digite um filme para busca: ");
@@ -42,9 +47,6 @@ public class PrincipalComBusca {
                 String json = response.body();
                 System.out.println(json);
 
-                Gson gson = new GsonBuilder()
-                        .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
-                        .create();
                 TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
                 System.out.println(meuTituloOmdb);
                 //try{
@@ -62,6 +64,10 @@ public class PrincipalComBusca {
             }
         }
         System.out.print(titulos);
+
+        FileWriter escrita = new FileWriter("filmes.json");
+        escrita.write(gson.toJson(titulos));
+        escrita.close();
         System.out.println("Programa finalizou corretamente!");
     }
 }
